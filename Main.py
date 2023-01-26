@@ -9,6 +9,7 @@ class Main:
         infrastructure.getAllInfo(2)
         infrastructure.getAllInfo(3)
         infrastructure.getAllInfo(33)
+        infrastructure.getAllInfo(11)
         infrastructure.showBirthYear("2008")
         infrastructure.showAddress(7)
         infrastructure.showStatus(2)

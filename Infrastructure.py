@@ -60,16 +60,19 @@ class Infrastructure:
     db.students.append(Student(id=11, name="Василий Пупкин"))
 
     def getAllInfo(self, idStudent: int):
-        for i in range(len(self.db.students)):
-            if self.db.students[i].getId() == idStudent:
-                s = self.db.students[i]
-                print(f"{s.getId()} "
-                      f"{s.getName()} "
-                      f"{s.getBirthYear()} "
-                      f"{self.db.addresses[s.getAddress() - 1].getStreetName()} "
-                      f"{self.db.statuses[s.getStatus() - 1].getStatus()} "
-                      f"{self.db.classes[s.getClassIndex() - 1].getIndex()} "
-                      f"{self.db.phones[s.getPhone() - 1].getPhone()}")
+        if idStudent < len(self.db.students):
+            for i in range(len(self.db.students)):
+                if self.db.students[i].getId() == idStudent:
+                    s = self.db.students[i]
+                    print(f"{s.getId()} "
+                          f"{s.getName()} "
+                          f"{s.getBirthYear()} "
+                          f"{self.db.addresses[s.getAddress()].getStreetName()} "
+                          f"{self.db.statuses[s.getStatus()].getStatus()} "
+                          f"{self.db.classes[s.getClassIndex()].getIndex()} "
+                          f"{self.db.phones[s.getPhone()].getPhone()}")
+        else:
+            print("Неверный Id.")
 
     def showBirthYear(self, year: str):
         print("Ученики запрашиваемого года рождения:")
